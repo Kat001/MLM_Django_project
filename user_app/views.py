@@ -3,6 +3,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from .form import CreateUserForm
 
+from django.contrib.auth.models import User
+
 # Create your views here.
 
 
@@ -12,8 +14,8 @@ def register(request):
 		form = CreateUserForm(request.POST)
 		if form.is_valid():
 			form.save()
-			print("success")
 			username = form.cleaned_data.get('username')
+			
 			messages.success(request,'Registration successful')
 			return redirect('login')
 	else:

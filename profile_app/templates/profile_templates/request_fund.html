@@ -1,0 +1,51 @@
+{% extends "profile_templates/base.html" %}
+{% load crispy_forms_tags %}
+
+   {% block content %}
+      <div id="content" class="p-4 p-md-5 pt-5">
+        <h2 class="mb-4">{{user.username}}</h2>
+
+        <form method="post" target="_blank" novalidate>
+          {% csrf_token %}
+          {{form.as_p}}
+          <button type="submit" class="btn btn-success">Submit Request</button>
+      </form>
+
+
+      <div id="content" class="p-4 p-md-5 pt-5">
+         <table border="1px solid black" width="100%">
+            <tr>
+               <th>Sr No.</th>
+               <th>Username</th>
+               <th>Amount</th>
+               <th>Date</th>
+               <th>Transaction Number</th>
+               <th>Proof</th>
+               <th>Status</th>
+               
+            
+            {% for userr in rqs%}
+
+               {% if userr.user_name == user.username %}
+            <tr>
+               <td>{{forloop.counter}}</td>
+               <td>{{userr.user_name}}</td>
+               <td>{{userr.fund}}</td>
+               <td>{{userr.date}}</td>
+               <td>{{userr.transection_no}}</td>
+               <td>{{userr.proof}}</td>
+               <td>{{userr.status}}</td>
+            </tr>
+
+               {% endif %}
+
+            {% endfor %}
+         </table>
+      </div>
+
+      </div>
+
+      
+
+
+   {% endblock content %}

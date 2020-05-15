@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="259dde3a-2467-4e75-a43a-1b8d02939b19" name="Default Changelist" comment="" />
+    <list default="true" id="259dde3a-2467-4e75-a43a-1b8d02939b19" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home_app/templates/home_templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/home_app/templates/home_templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile_app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/profile_app/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/profile_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile_app/templates/profile_templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/profile_app/templates/profile_templates/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/profile_app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/profile_app/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raj_site/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/raj_site/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raj_site/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/raj_site/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_app/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_app/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_app/form.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_app/form.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_app/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_app/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_app/templates/user_templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/user_app/templates/user_templates/register.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +29,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1ZGaeCPAcJvsZbRV5cNN4IXucBn" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -36,5 +55,15 @@
       <updated>1584467977200</updated>
     </task>
     <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1589375092748">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1589375092748" />
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1589374905218">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1589374905218" />
   </component>
 </project>

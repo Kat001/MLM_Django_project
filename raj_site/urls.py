@@ -3,10 +3,21 @@ from django.urls import path, include
 from user_app import views as user_views
 from django.contrib.auth import views as auth_views
 
+from django.conf import settings
+from django.conf.urls.static import static
+
+from admin_panel import views as admin_views
+
+
 urlpatterns = [
+
+	path('admin_panel/send_funds/update_funds/<str:user_name>/<int:fund>/<int:i_d>/',admin_views.update_funds),
+
 	path('admin/', admin.site.urls),
 	path('', include('home_app.urls')),
 	path('p/',include('profile_app.urls')),
+
+	path('admin_panel/',include('admin_panel.urls')),
 
 
 	path('signup/', user_views.register, name='register'),
@@ -27,3 +38,8 @@ urlpatterns = [
          auth_views.PasswordResetCompleteView.as_view(template_name='user_templates/password_reset_complete.html'), name='password_reset_complete'),
 
 ]
+
+
+
+if settings.DEBUG:
+	urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

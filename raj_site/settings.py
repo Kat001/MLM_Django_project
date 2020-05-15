@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'user_app',
     'home_app',
     'profile_app',
+    'admin_panel',
 
 ]
 
@@ -42,6 +43,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'raj_site.urls'

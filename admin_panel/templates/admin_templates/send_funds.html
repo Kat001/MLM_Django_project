@@ -1,0 +1,45 @@
+{% extends "profile_templates/base.html" %}
+{% load crispy_forms_tags %}
+
+   {% block content %}
+      <div id="content" class="p-4 p-md-5 pt-5">
+        <h2 class="mb-4">{{user.username}}</h2>
+
+
+  		<div id="content" class="p-4 p-md-5 pt-5">
+      	<table border="1px solid black" width="100%">
+      		<tr>
+      			<th>Sr No.</th>
+      			<th>Username</th>
+      			<th>Amount</th>
+      			<th>Date</th>
+      			<th>Transaction Number</th>
+      			<th>Proof</th>
+      			<th>Status</th>
+               <th>Send</th>
+      			
+      		
+      		{% for userr in rqs%}
+
+      			
+      		<tr>
+      			<td>{{forloop.counter}}</td>
+      			<td>{{userr.user_name}}</td>
+      			<td>{{userr.fund}}</td>
+      			<td>{{userr.date}}</td>
+      			<td>{{userr.transection_no}}</td>
+      			<td>{{userr.proof}}</td>
+      			<td>{{userr.status}}</td>
+               <td><a href="update_funds/{{userr.user_name}}/{{userr.fund}}/{{userr.id}}/">SEND</a></td>
+      		</tr>
+
+            {% endfor %}
+      	</table>
+      </div>
+
+      </div>
+
+      
+
+
+   {% endblock content %}

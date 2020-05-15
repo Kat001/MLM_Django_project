@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>hiii</title>
+	<style> 
+        .inputClass { 
+            pointer-events: none;  
+        } 
+
+     </style>
+</head>
+<body>
+   <form action="" method="POST">
+   		{% csrf_token %}
+
+   		Username:<input type="text" name="u_name"><br><br><br>
+   		Re-Enter Username:<input type="text" name="u_name1"><br><br>
+
+   		Available Fund:<input type="text" value="{{fund}}" readonly><br><br>
+
+   		Select Package:<input type="text" name="price1" list="pricelist" required>
+				<datalist id="pricelist">
+				  <option value=1000>
+				  <option value=5000>
+				  <option value=10000>
+				  <option value=15000>
+				  <option value=20000>
+
+				</datalist>
+
+				<br><br>
+
+		<button type="submit" class="btn btn-success">Submit Request</button>
+   		
+   </form>
+</body>
+</html>
