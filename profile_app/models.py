@@ -11,6 +11,8 @@ class Profile(models.Model):
     package = models.IntegerField(default=1000)
     is_active = models.BooleanField(default=False)
     active_amount = models.IntegerField(default=0)
+    sponsor_id = models.CharField(max_length=50,default="null")
+    side = models.CharField(max_length=5,default = "null")
 
     def __str__(self):
         return(f'{self.user.username}')
@@ -44,6 +46,21 @@ class Fund(models.Model):
 
 	def __str__(self):
 		return(f'{self.user.username}')
+
+
+
+
+class Tree_View(models.Model):
+	user_name = models.CharField(max_length=50,default="",unique=True)
+	left = models.CharField(max_length=50,default='null')
+	right = models.CharField(max_length=50,default='null')
+	left_count = models.IntegerField(default=0)
+	right_count = models.IntegerField(default=0)
+
+
+	def __str__(self):
+		return(f'{self.user_name}')
+
 
 
 

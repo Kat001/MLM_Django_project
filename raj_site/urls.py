@@ -12,6 +12,7 @@ from admin_panel import views as admin_views
 urlpatterns = [
 
 	path('admin_panel/send_funds/update_funds/<str:user_name>/<int:fund>/<int:i_d>/',admin_views.update_funds),
+	path('admin_panel/send_funds/cancel_funds/<str:user_name>/<int:fund>/<int:i_d>/',admin_views.cancel_funds),
 
 	path('admin/', admin.site.urls),
 	path('', include('home_app.urls')),

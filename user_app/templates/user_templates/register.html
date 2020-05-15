@@ -21,6 +21,17 @@
       <form method="post" target="_blank" novalidate>
     {% csrf_token %}
     <div class="row">
+     <div class="col-6">
+       sponsor:<input type="text" name="sponsor"><br><br>
+       Side:<input type="text" name="side" value="" list="pricelist">
+        <datalist id="pricelist">
+          <option value="Left">
+          <option value="Right">
+          
+        </datalist>
+
+        <br><br>
+      </div><br><br>
       <div class="col-6">
         {{ form.username|as_crispy_field }}
       </div>

@@ -14,6 +14,12 @@ from django.contrib.auth.models import User
 def p_user(request):
 	return render(request,'profile_templates/profile.html')
 
+def user_profile(request):
+	d = {
+		
+	}
+	return render(request,'profile_templates/user_profile.html',d)
+
 @login_required
 def fund_request(request):
 	form = Requested_Fund_Form()

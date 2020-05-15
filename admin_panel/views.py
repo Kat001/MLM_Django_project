@@ -24,13 +24,16 @@ def update_funds(request,user_name,fund,i_d):
 
 	obj1 = User.objects.get(username=user_name)
 	obj = Fund.objects.get(user = obj1 )
-	profile_obj = Profile.objects.get(i_d=id)
+	Requested_Fund_obj = Requested_Fund.objects.get(id = i_d)
 
 	obj.avail_fund += fund
+	if Requested_Fund_obj.status == "Pending":
+		Requested_Fund_obj.status = "Approved"
 
 	obj.save()
+	Requested_Fund_obj.save()
 
-	#return redirect('send_funds')
+	return redirect('send_funds')
 	
 	
 
@@ -39,3 +42,13 @@ def update_funds(request,user_name,fund,i_d):
 	}
 	
 	return render(request,'admin_templates/update_funds.html',d)
+
+def cancel_funds(request,user_name,fund,i_d):
+	Requested_Fund_obj = Requested_Fund.objects.get(id = i_d)
+	if Requested_Fund_obj.status == "Pending":
+		Requested_Fund_obj.status = "Cancelled"
+
+	Requested_Fund_obj.save()
+
+	return redirect('send_funds')
+	return render(request,'admin_templates/cancel_funds.html')

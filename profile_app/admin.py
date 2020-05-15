@@ -7,4 +7,5 @@ admin.site.register(Profile)
 admin.site.register(ROI)
 admin.site.register(Requested_Fund)
 admin.site.register(Fund)
+admin.site.register(Tree_View)
 
