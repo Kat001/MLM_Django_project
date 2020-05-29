@@ -1,0 +1,63 @@
+{% extends "profile_templates/base.html" %}
+    
+    {% block styles %}
+    {% load static %}
+      
+      <link rel="stylesheet" type="text/css" href="{% static 'profile_static/css/table.css' %}">
+    
+    {% endblock %}
+    
+
+    
+
+
+   {% block content %}
+      <div id="content" class="p-4 p-md-5 pt-5">
+        <h2 class="mb-4">{{user.username}}</h2>
+
+       
+         <table id="customers">
+            <tr>
+               <th>Sr No.</th>
+               <th>Date</th>
+               <th>Username</th>
+               <th>Left_user</th>
+               <th>Right_user</th>
+               <th>Matching Business</th>
+               <th>Matching Income</th>
+               <th>Left Carry_forward</th>
+               <th>Right carry_forward</th>
+               <th>Left Total_Business</th>
+               <th>Right Total_Business</th>
+               <th>Left Collapse_Bussiness</th>
+               <th>Right Collapse_Bussiness</th>
+            </tr>
+            
+            {% for obj in objs %}
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{obj.income_date}}</td>
+            <td>{{obj.user_name}}</td>
+            <td>{{obj.new_leftBV}}</td>
+            <td>{{obj.new_rightBV}}</td>
+            <td>{{obj.matching_BV}}</td>
+            <td>{{obj.matching_income}}</td>
+            <td>{{obj.carry_leftBV}}</td>
+            <td>{{obj.carry_rightBV}}</td>
+            <td>{{obj.total_leftBV}}</td>
+            <td>{{obj.total_rightBV}}</td>
+            <td>{{obj.collapse_leftBV}}</td>
+            <td>{{obj.collapse_rightBV}}</td>
+          </tr>
+            
+           {% endfor %}
+               
+         </table>
+       
+
+
+      </div>
+       
+ {% endblock content %}
+
+   

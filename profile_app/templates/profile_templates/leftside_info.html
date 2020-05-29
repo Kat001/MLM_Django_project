@@ -1,0 +1,70 @@
+{% extends "profile_templates/base.html" %}
+
+
+  {% block styles %}
+    {% load static %}
+      
+      <link rel="stylesheet" type="text/css" href="{% static 'profile_static/css/table.css' %}">
+    
+    {% endblock %}
+    
+
+
+   {% block content %}
+      <div id="content" class="p-4 p-md-5 pt-5">
+        <h2 class="mb-4">{{user.username}}</h2>
+
+        <div id="content" class="p-4 p-md-5 pt-5">
+         <table id="customers">
+            <tr>
+               <th>Sr No.</th>
+               <th>Username</th>
+               <th>Left_user</th>
+               <th>Right_user</th>
+               <th>Sponsor_user</th>
+               <th>Active</th>
+            </tr>
+            
+            {% for obj in l %}
+            <tr>
+            <td>{{forloop.counter}}</td>
+          	{% for obj1 in obj %}
+          	
+          		{% if forloop.first %}
+          			
+	          		<td>{{obj1.user_name}}</td>
+	          		{% if obj1.left == null %}
+	          			<td>_</td>
+	          		{% else %}
+	          			<td>{{obj1.left}}</td>
+	          		{% endif %}
+	          		
+	          		{% if obj1.right == null %}
+	          			<td>_</td>
+	          		{% else %}
+	          			<td>{{obj1.right}}</td>
+	          		{% endif %}
+          		{% else %}
+             		<td>{{obj1.sponsor_id}}</td>
+          			<td>{{obj1.is_active}}</td>
+          		{% endif %}
+
+          	
+
+          	{% endfor %}
+        {% endfor %}
+               
+               
+            
+            
+         </table>
+        </div>
+
+         
+        
+          		
+      </div>
+ {% endblock content %}
+
+   
+              

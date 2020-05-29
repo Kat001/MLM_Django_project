@@ -1,37 +1,44 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>hiii</title>
-	<style> 
-        .inputClass { 
-            pointer-events: none;  
-        } 
+{% extends "profile_templates/base.html" %}
 
-     </style>
-</head>
-<body>
-   <form action="" method="POST">
-   		{% csrf_token %}
+    {% block styles %}
+    {% load static %}
+      
+      <link rel="stylesheet" type="text/css" href="{% static 'profile_static/css/activateother.css' %}">
+    
+    {% endblock %}
+    
 
-   		Username:<input type="text" name="u_name"><br><br><br>
-   		Re-Enter Username:<input type="text" name="u_name1"><br><br>
 
-   		Available Fund:<input type="text" value="{{fund}}" readonly><br><br>
 
-   		Select Package:<input type="text" name="price1" list="pricelist" required>
-				<datalist id="pricelist">
-				  <option value=1000>
-				  <option value=5000>
-				  <option value=10000>
-				  <option value=15000>
-				  <option value=20000>
+   {% block content %}
+      <div id="content" class="p-4 p-md-5 pt-5">
+        <h2 class="mb-4">{{user.username}}</h2>
+        <div id="formdiv">
+          <form action="" method="POST">
+      {% csrf_token %}
 
-				</datalist>
+      Username:<br><input type="text" name="u_name"><br><br>
+      Re-Enter Username:<br><input type="text" name="u_name1"><br><br>
 
-				<br><br>
+      Available Fund:<br><input type="text" value="{{fund}}" readonly><br><br>
 
-		<button type="submit" class="btn btn-success">Submit Request</button>
-   		
+      <label for="package">Package:</label>
+          <select id="cars" name="price1" value=0>
+            <optgroup >
+              <option value=5000>5000</option>
+              <option value=10000>10000</option>
+              <option value=20000>20000</option>
+              <option value=30000>30000</option>
+              <option value=50000>50000</option>
+            </optgroup>
+          </select>
+
+        <br><br>
+
+    <button type="submit" class="btn btn-success">Submit Request</button>
+      
    </form>
-</body>
-</html>
+    </div>  
+
+
+ {% endblock content %}

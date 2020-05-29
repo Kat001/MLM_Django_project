@@ -1,0 +1,53 @@
+{% extends "profile_templates/base.html" %}
+    
+
+    {% block styles %}
+    {% load static %}
+      
+      <link rel="stylesheet" type="text/css" href="{% static 'profile_static/css/table.css' %}">
+    
+    {% endblock %}
+    
+
+
+    
+
+
+   {% block content %}
+      <div id="content" class="p-4 p-md-5 pt-5">
+        <h2 class="mb-4">{{user.username}}</h2>
+
+       
+         <table id="customers">
+            <tr>
+               <th>Sr No.</th>
+               <th>Date</th>
+               <th>Username</th>
+               <th>Sponser Id</th>
+               <th>Active Amount</th>
+               <th>Direct income</th>
+            </tr>
+            
+            {% for obj in objs %}
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{obj.income_date}}</td>
+            <td>{{obj.username}}</td>
+            <td>{{obj.user_name}}</td>
+            <td>{{obj.activated_amount}}</td>
+            <td>{{obj.direct_income}}</td>
+            
+          
+          </tr>
+            
+           {% endfor %}
+               
+         </table>
+       
+
+
+      </div>
+       
+ {% endblock content %}
+
+   

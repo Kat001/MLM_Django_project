@@ -1,73 +1,159 @@
 {% load static %}
+
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>{{user.username}}</title>
+    <title>{{user.username}}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-		
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="{% static 'profile_static/css/style.css' %}">
+
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'profile_static/css/style.css' %}">
+
+   <style type="text/css">
+
+     
+
+   </style>
+
+
+    {% block styles %}
+    
+    {% endblock styles %}
+
+    
+
+
   </head>
   <body>
-		
-		<div class="wrapper d-flex align-items-stretch">
-			<nav id="sidebar">
-				<div class="custom-menu">
-					<button type="button" id="sidebarCollapse" class="btn btn-primary">
-	        </button>
+    <div class="wrapper d-flex align-items-stretch">
+      <nav id="sidebar">
+        <div class="custom-menu">
+          <button type="button" id="sidebarCollapse" class="btn btn-primary">
+          </button>
         </div>
-	  		<div class="img bg-wrap text-center py-4" style="background-image: url({% static 'profile_static/images/bg_1.jpg' %});">
-	  			<div class="user-logo">
-	  				<div class="img" style="background-image: url({{user.profile.image.url}});"></div>
-	  				<h3>{{user.username}}</h3>
-	  			</div>
-	  		</div>
+        <div class="img bg-wrap text-center py-4" style="background-image:   url({% static 'profile_static/images/bg_1.jpg' %});">
+          <div class="user-logo">
+            <div class="img" style="background-image: url({{user.profile.image.url}});"></div>
+            <h3>{{user.username}}</h3>
+          </div>
+        </div>
+        
+
         <ul class="list-unstyled components mb-5">
-          <li class="active">
-            <a href="#"><span class="fa fa-home mr-3"></span> Home</a>
+
+         <li class="active">
+            <a href="{% url 'p_user' %}"><span class=""></span>Dashboard</a>
           </li>
 
           <li class="active">
-            <a href="{% url 'user_profile' %}"><span class="fa fa-home mr-3"></span> Profile</a>
-          </li>
+            <a href="{% url 'fund_request' %}"><span class=""></span>Request Fund</a>
+        </li>
 
 
-          <li>
-              <a href="{% url 'fund_request' %}"><span class="fa fa-download mr-3 notif"><small class="d-flex align-items-center justify-content-center">5</small></span>Request Fund</a>
-          </li>
-          <li>
-            <a href="{% url 'activate_id' %}"><span class="fa fa-gift mr-3"></span>Activate ids</a>
-          </li>
-          <li>
-            <a href="{% url 'activate_other_id' %}"><span class="fa fa-gift mr-3"></span>Activate other ids</a>
-          </li>
-          <li>
-            <a href="#"><span class="fa fa-trophy mr-3"></span> Top Review</a>
-          </li>
-          <li>
-            <a href="#"><span class="fa fa-cog mr-3"></span> Settings</a>
-          </li>
-          <li>
-            <a href="#"><span class="fa fa-support mr-3"></span> Support</a>
-          </li>
-          <li>
-            <a href="{% url 'logout' %}"><span class="fa fa-sign-out mr-3"></span> Sign Out</a>
-          </li>
+
+          
+        <li class="active">
+          <a href="#" class="feat-btn">User Profile
+            <span class="fas fa-caret-down first"></span> 
+          </a>
+            <ul class="feat-show">
+              <li><a href="{% url 'user_profile' %}">Personal Info</a></li>
+              <li><a href="{% url 'update_profile' %}">Update Profile</a></li>
+              <li><a href="{% url 'update_kyc' %}">Update KYC</a></li>
+            </ul>
+        </li>
+
+
+
+        <li class="active">
+          <a href="#" class="serv-btn">Activate Ids
+            <span class="fas fa-caret-down second"></span> 
+          </a>
+            <ul class="serv-show">
+              <li><a href="{% url 'activate_id' %}">Activate own Id</a></li>
+              <li><a href="{% url 'activate_other_id' %}">Activate other's Id</a></li>
+            </ul>
+        </li>
+
+        
+        <li class="active">
+          <a href="#" class="dev-btn">My Team
+            <span class="fas fa-caret-down third"></span> 
+          </a>
+            <ul class="dev-show">
+              <li><a href="{% url 'leftside_info' %}">Left Team</a></li>
+              <li><a href="{% url 'rightside_info' %}">Right Team</a></li>
+              <li><a href="{% url 'myleft_referral' %}">Left Referral</a></li>
+              <li><a href="{% url 'myright_referral' %}">Right Referral</a></li>
+              <li><a href="#">Genealogy View</a></li>
+            </ul>
+        </li>
+
+        <li class="active">
+          <a href="#" class="inc-btn">My Income
+            <span class="fas fa-caret-down forth"></span> 
+          </a>
+            <ul class="inc-show">
+              <li><a href="{% url 'matching_income' %}">Matching Income</a></li>
+              <li><a href="{% url 'roi_income' %}">ROI Income</a></li>
+              <li><a href="{% url 'direct_income' %}">Direct Sponsor Income</a></li>
+              <li><a href="{% url 'withrawl_income' %}">Withrawl Money</a></li>
+              <li><a href="#">Reward Income</a></li>
+              <li><a href="#">Special Income</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="{% url 'logout' %}"><span class=""></span> Sign Out</a>
+        </li>
+        
         </ul>
 
-    	</nav>
+      </nav>
 
         <!-- Page Content  -->
-         {% block content %} {% endblock%}
-		</div>
+       
+        {% block content %}{% endblock content %}
+      </div>
+       
+    </div>
 
     <script src="{% static 'profile_static/js/jquery.min.js' %}"></script>
     <script src="{% static 'profile_static/js/popper.js' %}"></script>
     <script src="{% static 'profile_static/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'profile_static/js/main.js' %}"></script>
-  
+
+    <script type="text/javascript">
+      $('.feat-btn').click(function() {
+         $('nav ul .feat-show').toggleClass("show");
+         $('nav ul .first').toggleClass("rotate");
+      });
+
+      $('.serv-btn').click(function() {
+         $('nav ul .serv-show').toggleClass("show1");
+         $('nav ul .second').toggleClass("rotate");
+      });
+
+      $('.dev-btn').click(function() {
+         $('nav ul .dev-show').toggleClass("show2");
+         $('nav ul .third').toggleClass("rotate");
+      });
+
+
+      $('.inc-btn').click(function() {
+         $('nav ul .inc-show').toggleClass("show3");
+         $('nav ul .forth').toggleClass("rotate");
+      });
+     
+    </script>
+
+
   </body>
 </html>

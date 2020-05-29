@@ -1,9 +1,195 @@
 {% extends "profile_templates/base.html" %}
+    
+    {% block styles %}
+    {% load static %}
+      
+      <style type="text/css">
+        body {
+        background-image: url("{% static 'profile_static/images/back2.jpg' %}"); 
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        padding-bottom: 0%;
+      }
+
+        .cards-list {
+        z-index: 0;
+        width: 80%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+      
+      .card {
+        margin: 30px auto;
+        width: 300px;
+        height: 300px;
+        border-radius: 40px;
+      box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+        cursor: pointer;
+        transition: 0.4s;
+      }
+      
+      .card .card_image {
+        width: inherit;
+        height: inherit;
+        border-radius: 40px;
+      }
+      
+      .card .card_image img {
+        width: inherit;
+        height: inherit;
+        border-radius: 40px;
+        object-fit: cover;
+      }
+      
+      .card .card_title {
+        text-align: center;
+        border-radius: 0px 0px 40px 40px;
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: 30px;
+        margin-top: -80px;
+        height: 40px;
+      }
+      
+    
+      
+      .title-white {
+        color: white;
+      }
+      
+      .title-black {
+        color: black;
+      }
+
+      @media all and (max-width: 500px) {
+        .card-list {
+          /* On small screens, we are no longer using row direction but column */
+          flex-direction: column;
+
+        }
+      }
+      
+      .card {
+        margin: 30px auto;
+        width: 300px;
+        height: 300px;
+        border-radius: 40px;
+        background-image: url('https://i.redd.it/b3esnz5ra34y.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-repeat: no-repeat;
+      box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+        transition: 0.4s;
+      }
+
+      #content {
+       width :100%;
+      }
+
+      #div2 {
+        color: green;
+        padding-left: 50px;
+        padding-top: -10px;
+        font-weight: 50px;
+        background: white;
+
+      }
+      
+      
+
+      </style>
+    
+    {% endblock styles %}
+    
+
+    
+
 
    {% block content %}
       <div id="content" class="p-4 p-md-5 pt-5">
         <h2 class="mb-4">{{user.username}}</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+          <div class="cards-list">
+
+          <div class="card 1">
+            <div class="card_image">
+              <h1><center> Sponsor ID</center></h1><br>
+                <div id="div2"><h2 style="color: blue;">{{profile_obj.sponsor_id}}</h2></div>
+              </div>
+          
+          </div>
+  
+        
+        
+          <div class="card 2">
+          <div class="card_image">
+
+            <h1><center>Binary Income</center></h1>
+             <div id="div2"><h2 style="color: blue;">Rs-{{binary_obj.total_bincome}}</h2></div>
+            
+            </div>
+          
+        </div>
+
+        <div class="card 3">
+          <div class="card_image">
+
+            <h1><center>ROI Income</center></h1>
+            <div id="div2"><h2 style="color: blue;">Rs-{{roi_obj.total_rincome}}</h2></div>
+            </div>
+          
+        </div>
+
+        <div class="card 4">
+          <div class="card_image">
+
+            <h1><center>Direct Income</center></h1>
+            <div id="div2"><h2 style="color: blue;">Rs- {{direct_obj.total_dincome}}</h2></div>
+            </div>
+         
+        </div>
+        
+        <div class="card 5">
+          <div class="card_image">
+           <h1><center>Activate Amount</center></h1>
+           <div id="div2"><h2 style="color: blue;">Rs-{{profile_obj.active_amount}}</h2></div>
+          </div>
+          
+        </div>
+          
+          <div class="card 6">
+          <div class="card_image">
+            <h1><center>Available Amount</center></h1>
+            <div id="div2"><h2 style="color: blue;">Rs-{{amount}}</h2></div>
+            </div>
+          
+          </div>
+
+          <div class="card 7">
+          <div class="card_image">
+           <h1><center>Registration Date</center></h1>
+           <div id="div2"><h2 style="color: blue;">{{user.date_joined}}</h2></div>
+          </div>
+          
+          </div>
+
+          <div class="card 8">
+          <div class="card_image">
+           <h1><center>Activation Date</center></h1>
+           <div id="div2"><h2 style="color: blue;">hkhdkasj</h2></div>
+          </div>
+          
+          </div>
+        
+        
+        </div>
+       
+         
+
       </div>
-   {% endblock content %}
+       
+ {% endblock content %}
+
+   

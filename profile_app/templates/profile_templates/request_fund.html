@@ -1,19 +1,41 @@
 {% extends "profile_templates/base.html" %}
 {% load crispy_forms_tags %}
 
+
+  {% block styles %}
+    {% load static %}
+      
+      <link rel="stylesheet" type="text/css" href="{% static 'profile_static/css/fund.css' %}">
+
+    
+  {% endblock styles %}
+    
+
+
    {% block content %}
       <div id="content" class="p-4 p-md-5 pt-5">
         <h2 class="mb-4">{{user.username}}</h2>
 
-        <form method="post" target="_blank" novalidate>
-          {% csrf_token %}
-          {{form.as_p}}
+    <div id="formdiv">
+      <form method="post">
+          {% csrf_token %}<br>
+          {{form.user_name.label}}<br>
+          {{form.user_name}}<br>
+          {{form.date.label}}<br>
+          {{form.date}}<br>
+          {{form.fund.label}}<br>
+          {{form.fund}}<br>
+          {{form.transection_no.label}}<br>
+          {{form.transection_no}}<br>
+          {{form.proof.label}}<br>
+          {{form.proof}}
           <button type="submit" class="btn btn-success">Submit Request</button>
       </form>
+    </div>
 
 
       <div id="content" class="p-4 p-md-5 pt-5">
-         <table border="1px solid black" width="100%">
+         <table id="customers">
             <tr>
                <th>Sr No.</th>
                <th>Username</th>

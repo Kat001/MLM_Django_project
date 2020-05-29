@@ -9,10 +9,10 @@
         body {
             margin : 0;
             padding: 0;
-            background-image:  url({% static 'images/back.jpg' %});
+            background-image:  url({% static 'profile_static/images/back2.jpg' %});
             background-repeat: no-repeat;
             background-size: 100% 100%;
-            font-family: sans-serif;
+           font-family: 'Chelsea Market', cursive;
         }
 
         .box {
@@ -22,14 +22,14 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
-            background: #191919;
+            background: white;
             text-align: center;
             border-radius: 30px;
             transition: 0.25s;
         }
 
         .box h1 {
-            color: white;
+            color: pink;
             text-transform: uppercase;
             font-weight: 500;
 
@@ -61,7 +61,7 @@
         .box input[type="submit"] {
 
             border: 0;
-            background: none;
+            background: #2ecc71;
             display: block;
             margin: 20px auto;
             text-align: center;
@@ -77,9 +77,10 @@
         }
 
         .box input[type="submit"]:hover {
-            background: #2ecc71;
+            background: green;
 
         }
+
 
         </style>
     </head>
@@ -88,9 +89,10 @@
             {% csrf_token %}
             <h1>Login<h1>
 
-            {{form.username}}
-            {{form.password}}
+            <div class="col-25">{{form.username}}</div>
+            <div class="col-75">{{form.password}}</div>
             <input type="submit" value="Login">
+            <h3>DON'T HAVE ACCOUNT?<br><a href="">click here</a> </h3>
         </form>
         
     </body>

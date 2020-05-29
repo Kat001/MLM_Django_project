@@ -1,4 +1,5 @@
 {% load crispy_forms_tags %}
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,39 +10,109 @@
 	  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
     <style type="text/css">
-      form {
-        width:50%;
-        height: 200px;
-        margin-left: 200px;
-        margin-top: 50px;
+      body {
+          background-image: url("{% static 'profile_static/images/back2.jpg' %}"); 
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+          font-family: 'Chelsea Market', cursive;
+          height: 700px;
       }
+
+      .box {
+          height: 700px;
+          width: 450px;
+          border: 2px solid pink;
+          border-radius: 25px; 
+          background-color: white;
+          margin-left: 450px;
+          margin-top: 50px;
+          padding-left: 100px;
+          padding-top: 50px; 
+      }
+      .box input[type="text"],.box input[type="password"],.box input[type="email"]{
+            
+              border: 0;
+              background: white;
+              display: block;
+            /*margin: 20px auto;*/
+              text-align: center;
+              border: 2px solid black;
+              padding: 5px 10px;
+              width: 200px;
+              outline: none;
+              color: black;
+              border-radius: 15px;
+              transition: 0.25s;
+
+
+        }
+
+      .box button[type=submit]
+          {
+       
+            background: #2ecc71;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #2ecc71;
+            padding: 14px 40px;
+
+            outline: none;
+            color: white;
+            border-radius: 24px;
+            transition: 0.25s;
+            cursor: pointer;
+
+          }
+
+
+      .col-25, .col-75, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+  }
+}
+
+      .box button[type=text]
+      {
+        color: red;
+      }
+
+
+      
+
     </style>
 </head>
 <body>
-      <form method="post" target="_blank" novalidate>
-    {% csrf_token %}
-    <div class="row">
-     <div class="col-6">
-       sponsor:<input type="text" name="sponsor"><br><br>
-       Side:<input type="text" name="side" value="" list="pricelist">
-        <datalist id="pricelist">
-          <option value="Left">
-          <option value="Right">
-          
-        </datalist>
+    <form method="POST" target="_blank" class="box">
+      {% csrf_token %}
+      <h1>Create Your Account</h1>
 
-        <br><br>
-      </div><br><br>
-      <div class="col-6">
-        {{ form.username|as_crispy_field }}
-      </div>
-      <div class="col-6">
-        {{ form.email|as_crispy_field }}
-      </div>
-    </div>
-    {{ form.password1|as_crispy_field }}
-    {{ form.password2|as_crispy_field }}
+      <div class="col-25">Spnonsor:<br></div>
+      <div class="col-75"><input type="text" name="spn"></div>
+      
+      
+    
+     <div class="col-25">{{form.username.label}}:</div>
+      <div class="col-75">{{form.username}}</div>
+      <div class="col-25">{{form.email.label}}:</div>
+      <div class="col-75">{{form.email}}</div>
+      <div class="col-25">{{form.password1.label}}:</div>
+      <div class="col-75">{{form.password1}}</div>
+      <div class="col-25">{{form.password2.label}}:</div>
+      <div class="col-75">{{form.password2}}</div>
+
+      <div class="col-25"><label for="cars">Side:</label></div>
+       <div class="col-75"><select id="cars" name="side">
+            <optgroup>
+              <option value="Left">Left</option>
+              <option value="Right">Right</option>
+            </optgroup>
+          </select></div>
+
+
+
     <button type="submit" class="btn btn-success">Save person</button>
+    <h3>AlREADY HAVE AN ACCOUNT?<a href="{% url 'login'%}">click here</a></h3>
   </form>
         
 </body>
