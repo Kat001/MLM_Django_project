@@ -233,6 +233,7 @@ class Bank_Info(models.Model):
 	aadhar_image = models.ImageField(default="default.jpg", upload_to="profile_pics")
 	pan_image = models.ImageField(default="default.jpg", upload_to="profile_pics")
 	p_image = models.ImageField(default="default.jpg", upload_to="profile_pics")
+	cheak = models.BooleanField(default=False)
 
 	@property
 	def username(self):

@@ -6,6 +6,7 @@ urlpatterns = [
 	path('user_profile/', views.user_profile, name = 'user_profile'),
 	path('update_profile',views.update_profile, name='update_profile'),
 	path('update_kyc',views.update_kyc, name='update_kyc'),
+	path('updating_kyc',views.updating_kyc, name = 'updating_kyc'),
 	path('fund_request/', views.fund_request, name='fund_request'),
 	path('activate_id/',views.activate_id, name='activate_id'),
 	path('activate_other_id/',views.activateother_id, name='activate_other_id'),

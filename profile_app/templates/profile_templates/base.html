@@ -18,7 +18,9 @@
 
    <style type="text/css">
 
-     
+     body {
+      font-family: 'Chelsea Market', cursive;
+     }
 
    </style>
 
@@ -118,9 +120,17 @@
 
       </nav>
 
-        <!-- Page Content  -->
+        <!-- Page Content  
+        {% if messages %}
+          {% for message in messages%}
+           <div class="alert alert-{{message.tag}}">
+             {{ message }}
+           </div>
+          {% endfor %}
+        {% endif %} -->
+
        
-        {% block content %}{% endblock content %}
+        {% block content %} {% endblock content %}
       </div>
        
     </div>

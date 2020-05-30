@@ -48,9 +48,12 @@ def update_profile(request):
 
 @login_required
 def fund_request(request):
+	user = request.user
+	name1 = user.username
 	try:
 		form = Requested_Fund_Form()
-		rqs =  Requested_Fund.objects.all
+		rqs =  Requested_Fund.objects.filter(user_name=name1)
+
 		if request.method=='POST' or request.method is None:
 			form = Requested_Fund_Form(request.POST)
 			if form.is_valid:
@@ -66,6 +69,7 @@ def fund_request(request):
 	d = {
 	  'form' : form,
 	  'rqs' : rqs,
+	  'c' : 1,
 	  
 	}
 	return render(request,'profile_templates/request_fund.html',d)
@@ -467,13 +471,41 @@ def withrawl_income(request):
 
 
 def update_kyc(request):
-	user = request.user
-	obj = Bank_Info.objects.get(user=user)
+	user_obj = request.user
+	obj = Bank_Info.objects.get(user = user_obj)
+
+	
 	form = Bank_Form(request.POST or None,instance=obj)
+		
+	if form.is_valid():
+		if obj.cheak==False:
+			obj.cheak = True
+			form.save()
+			obj.save()
+	else:
+		messages.success(request,f'Contact the Admin!')
+	
 	d = {
 	 'form' : form,
 	}
 	return render(request,'profile_templates/update_kyc.html',d)
+
+def updating_kyc(request):
+	user = request.user
+	obj = Bank_Info.objects.get(user=user)
+	form = Bank_Form()
+	if request.method == 'POST':
+		print("snsauhsaiuagi")
+		form = Bank_Form(request.POST)
+		if form.is_valid():
+			print("ojjjj")
+	
+
+	d = {
+		'form' : form,
+	}
+	return render(request,'profile_templates/updating_kyc.html',d)
+
 
 
 

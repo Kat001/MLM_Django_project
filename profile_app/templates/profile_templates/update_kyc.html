@@ -11,8 +11,14 @@
      	}
 
      	.box input[type=text] {
-     		margin-left: 100px;
+     		margin-left: 70px;
+     		margin-top: 10px;
+     		border: 2px solid pink;
+     		border-radius: 7px;
+     		width: 500px;
+     		height: 50px;
      	}
+
      </style>
     
     {% endblock %}
@@ -26,42 +32,61 @@
       <div id="content" class="p-4 p-md-5 pt-5">
         <h2 class="mb-4">Bank details.</h2>
 
-			<form class="box">
-			  <div class="form-row">
-			  	<div class="form-group col-md-6">
-			      {{form.account_holder_name.label}}
-			      {{form.account_holder_name}} 
-			    </div>
-			    <div class="form-group col-md-6">
-			      {{form.account_number.label}}
-			      {{form.account_number}}
-			    </div>
-			    <div class="form-group col-md-6">
-			      {{form.branch_name.label}}
-			      {{form.branch_name}}
-			    </div>
-			    <div class="form-group col-md-6">
-			      {{form.ifsc_code.label}}
-			      {{form.ifsc_code}}
-			    </div>
+			<form method="POST" class="box" >
+				{% csrf_token %}
+			     <table>
+			     	<tr>
+			     		<td></td>
+			     		<td></td>
+			     	</tr>
+			     	<tr>
+			     		<td>{{form.account_holder_name.label}}</td>
+			     		<td>{{form.account_holder_name}}</td>
+			     	</tr>
+			     	<tr>
+			     		<td>{{form.account_number.label}}</td>
+			     		<td>{{form.account_number}}</td>
+			     	</tr>
+			     	<tr>
+			     		<td>{{form.branch_name.label}}</td>
+			     		<td>{{form.branch_name}}</td>
+			     	</tr>
+			     		<tr>
+			     		<td>{{form.ifsc_code.label}}</td>
+			     		<td>{{form.ifsc_code}}</td>
+			     	</tr>
+			     		<tr>
+			     		<td>{{form.bank_name.label}}</td>
+			     		<td>{{form.bank_name}}</td>
+			     	</tr>
+			     	</tr>
+			     		<tr>
+			     		<td>{{form.nominee_name.label}}</td>
+			     		<td>{{form.nominee_name}}</td>
+			     	</tr>
 
-			    <div class="form-group col-md-6">
-			    	{{form.bank_name.label}}
-			    	{{form.bank_name}}
-			    </div>
+			     </table>
+	<h2 class="mb-4">KYC details.</h2>
 
-			    <div class="form-group col-md-6">
-			      {{form.nominee_name.label}}
-			      {{form.nominee_name}}
-			    </div>
-			   
-
-			  </div>
-			  
-			  
-			 
-			 
-			  <button type="submit" class="btn btn-primary">Update</button>
+				<table>
+					<tr>
+						<td>{{form.aadhar_number.label}}</td>
+						<td>{{form.aadhar_number}}</td>
+					</tr>
+					<tr>
+						<td>{{form.pan_number.label}}</td>
+						<td>{{form.pan_number}}</td>
+					</tr>
+					<tr>
+						<td>{{form.aadhar_image.label}}</td>
+						<td>{{form.aadhar_image}}</td>
+					</tr>
+					<tr>
+						<td>{{form.pan_image.label}}</td>
+						<td>{{form.pan_image}}</td>
+					</tr>
+				 </table>
+			<button type="submit" class="btn btn-primary">Update</button>
 			</form>
 
 
