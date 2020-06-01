@@ -61,6 +61,7 @@ class Update_ROI(models.Model):
 	starting_date = models.DateTimeField(auto_now_add=True,null=True)
 	activated_amount = models.IntegerField(default=0)
 	ending_date = models.DateField(default='1920-05-01')
+	days = models.IntegerField(default=30)
 
 	@property
 	def username(self):

@@ -50,7 +50,7 @@ class ROI_Admin(admin.ModelAdmin):
 
 class UpdateROI_Admin(admin.ModelAdmin):
 	list_display = ('income_date','username',
-					'activated_amount','roi_income','starting_date',
+					'activated_amount','roi_income','starting_date','days',
 					'ending_date')
 	search_fields = ['user__username']
 	readonly_fields = ('username',)
@@ -70,14 +70,21 @@ class UpdateROI_Admin(admin.ModelAdmin):
 		for obj in objs:
 			income = 0
 			ob = Update_ROI.objects.filter(user = obj.user)
+			profile_obj = Profile.objects.get(user = obj.user)
 			for o in ob:
-				income += o.roi_income 
-			#print(income)
+				if o.days==0:
+					o.delete()
+				else:
+					income += o.roi_income
+					o.days -= 1
+					o.save() 
+			
 			obj.income = income
 			obj.save()
 
-			R = Show_ROI(user_name=obj.user.username,roi_income=income)
-			R.save()
+			if profile_obj.is_active:
+				R = Show_ROI(user_name=obj.user.username,roi_income=income)
+				R.save()
 
 
 		objv = Roi_Wallet.objects.all()

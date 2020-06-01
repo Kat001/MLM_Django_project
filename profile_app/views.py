@@ -50,6 +50,7 @@ def update_profile(request):
 def fund_request(request):
 	user = request.user
 	name1 = user.username
+	
 	try:
 		form = Requested_Fund_Form()
 		rqs =  Requested_Fund.objects.filter(user_name=name1)
@@ -95,16 +96,19 @@ def activate_id(request):
 
 			else:
 				profile_obj.is_active = True
-				profile_obj.active_amount = int(price)
+				profile_obj.active_amount += int(price)
 				fund_obj.avail_fund -= int(price)
 
 			fund_obj.save()
+			
 
 			
 			R = Update_ROI(user = user_obj,activated_amount=price,ending_date='1999-12-20')
 			R.save()
 
+			
 			sponsor = profile_obj.sponsor_id
+			profile_obj.save()
 			name11 = user_obj.username
 			user_obj = User.objects.get(username=sponsor)
 			profile_obj = Profile.objects.get(user=user_obj)
@@ -121,6 +125,7 @@ def activate_id(request):
 				d_obj.save()
 
 				profile_obj.save()
+				return redirect('activate_id')
 				
 
 				
@@ -197,6 +202,7 @@ def activateother_id(request):
 					d_obj.d_income += income
 					d_obj.total_dincome += income
 					d_obj.save()
+					return redirect('activate_other_id')
 	except Exception as e:
 		return redirect('activate_other_id')				
 	

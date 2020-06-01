@@ -4,6 +4,16 @@
     {% load static %}
       
       <link rel="stylesheet" type="text/css" href="{% static 'profile_static/css/activateother.css' %}">
+      <style type="text/css">
+      body {
+        background-image: url("{% static 'profile_static/images/back2.jpg' %}"); 
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+          font-family: 'Chelsea Market', cursive;
+         
+      }
+    </style>
+
     
     {% endblock %}
     
@@ -13,7 +23,7 @@
    {% block content %}
       <div id="content" class="p-4 p-md-5 pt-5">
         <h2 class="mb-4">{{user.username}}</h2>
-        <div id="formdiv">
+        <div id="formdiv" style="background-color: white;">
           <form action="" method="POST">
       {% csrf_token %}
 
